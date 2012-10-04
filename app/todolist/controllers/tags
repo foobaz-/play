@@ -1,0 +1,12 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+deleteTask	/home/robin/play/games/app/todolist/controllers/TodoList.scala	/^  def deleteTask(id: Long) = TODO$/;"	m	language:scala
+index	/home/robin/play/games/app/todolist/controllers/TodoList.scala	/^  def index = Action {$/;"	m	language:scala
+newTask	/home/robin/play/games/app/todolist/controllers/TodoList.scala	/^  def newTask() = TODO$/;"	m	language:scala
+showTasks	/home/robin/play/games/app/todolist/controllers/TodoList.scala	/^  def showTasks = Action {$/;"	m	language:scala
+TodoList	/home/robin/play/games/app/todolist/controllers/TodoList.scala	/^object TodoList extends Controller {$/;"	c	language:scala
+todolist.controllers	/home/robin/play/games/app/todolist/controllers/TodoList.scala	/^package todolist.controllers$/;"	p	language:scala
