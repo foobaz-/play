@@ -1,0 +1,21 @@
+package todolist.controllers
+
+import play.api._
+import play.api.mvc._
+
+import todolist._
+
+object TodoList extends Controller {
+
+  def index = Action {
+    Redirect(routes.TodoList.showTasks)
+  }
+
+  def showTasks = Action {
+    Ok(todolist.views.html.tasks(todolist.models.Task.getAll(), Null))
+  }
+
+  def deleteTask(id: Long) = TODO
+
+  def newTask() = TODO
+}

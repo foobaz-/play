@@ -1,9 +1,8 @@
+@(tasks: List[todolist.models.Task])
 @import todolist.models
 @import helper._
 
-@(tasks: List[models.Task])
-
-@main("Todo list") {
+@main.views.html.main {
 
     <h1>@tasks.size task(s)</h1>
 
