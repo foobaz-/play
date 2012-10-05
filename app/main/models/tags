@@ -4,4 +4,5 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-User	/home/robin/play/games/app/main/models/User.scala	/^case class User(firstName: String, familyName: String, email: String)$/;"	c	language:scala
+main.models	/home/robin/play/games/app/main/models/User.scala	/^package main.models$/;"	p	language:scala
+User	/home/robin/play/games/app/main/models/User.scala	/^case class User(firstName: String, familyName: String, email: String, password: String)$/;"	c	language:scala

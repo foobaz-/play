@@ -1,5 +1,18 @@
-@()
+@(loginForm: Form[(String, String)])
+
+@import helper._
+@import play.api.data
+@import play.api.data.Forms._
+
 @mainView(isLoggedIn = false) {
-<h1>Please Login</h1>
-If you don't have an account yet, please <a href="/register">register here</a>.
+
+    <h1>Please Login</h1>
+    If you don't have an account yet, please <a href="/register">register here</a>.
+
+    @form((new main.controllers.ReverseUserManager).loginAsUser) {
+        @inputText(loginForm("Email address"), 'placeholder -> "somebody@somehost.com")
+        @inputText(loginForm("Password"), 'placeholder -> "*******")
+        <input type="submit" value="Login">
+    }
+
 }
