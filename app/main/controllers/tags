@@ -7,6 +7,14 @@
 EntryPoint	/home/robin/play/games/app/main/controllers/Application.scala	/^object EntryPoint extends Controller {$/;"	c	language:scala
 EntryPoint	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^object EntryPoint extends Controller {$/;"	c	language:scala
 index	/home/robin/play/games/app/main/controllers/Application.scala	/^  def index = Action {$/;"	m	language:scala
-index	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^  def index = Action {$/;"	m	language:scala
+index	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^  def index = Action { request =>$/;"	m	language:scala
+loginAsUser	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def loginAsUser = Action{ Ok(html.loginscreen()) }$/;"	m	language:scala
+loginForm	/home/robin/play/games/app/main/controllers/UserManager.scala	/^    val loginForm: Form[(String, String, String)] = Form($/;"	l	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/Application.scala	/^package main.controllers$/;"	p	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^package main.controllers$/;"	p	language:scala
+main.controllers	/home/robin/play/games/app/main/controllers/UserManager.scala	/^package main.controllers$/;"	p	language:scala
+newUser	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def newUser = Action{ request =>$/;"	m	language:scala
+register	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def register = Action{ Ok(html.loginscreen()) }$/;"	m	language:scala
+showLoginScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showLoginScreen = Action {$/;"	m	language:scala
+showRegisterScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showRegisterScreen = Action {$/;"	m	language:scala
+UserManager	/home/robin/play/games/app/main/controllers/UserManager.scala	/^object UserManager extends Controller {$/;"	c	language:scala

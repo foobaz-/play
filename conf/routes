@@ -5,6 +5,11 @@
 # Home page
 GET     /                           main.controllers.EntryPoint.index
 
+# Login
+GET     /login                      main.controllers.UserManager.showLoginScreen
+GET     /register                   main.controllers.UserManager.showRegisterScreen
+POST    /newuser                    main.controllers.UserManager.newUser
+
 # TodoList
 GET     /todolist/                  todolist.controllers.TodoList.index
 GET     /todolist/alltasks          todolist.controllers.TodoList.showTasks

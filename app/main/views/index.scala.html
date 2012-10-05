@@ -1,5 +1,5 @@
-@(titleMsg: String)
+@(isLoggedIn: Boolean, titleMsg: String)
 
-@main {
+@mainView(isLoggedIn) {
 <h1>@titleMsg</h1>
 }
