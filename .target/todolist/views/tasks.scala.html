@@ -1,0 +1,19 @@
+@(tasks: List[todolist.models.Task])
+@import todolist.models
+@import helper._
+
+@main.views.html.mainView(true) {
+
+    <h1>@tasks.size task(s)</h1>
+
+    <ul>
+        @tasks.map { task =>
+            <li>
+                @task.content
+            </li>
+        }
+    </ul>
+
+    <h2>Add a new task</h2>
+
+}
