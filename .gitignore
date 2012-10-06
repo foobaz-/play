@@ -15,3 +15,20 @@ dist
 /.project
 /RUNNING_PID
 *.swp
+
+# Extracted from https://github.com/ulrich/macaron-factory/blob/master/.gitignore
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+
+# Ignore Play! working directory #
+db
+eclipse
+log
+logs
+precompiled
+tmp
+test-result
+eclipse
+server.pid
