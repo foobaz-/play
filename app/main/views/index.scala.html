@@ -1,5 +1,5 @@
-@(isLoggedIn: Boolean, titleMsg: String)
+@()(implicit session: play.api.mvc.Session)
 
-@mainView(isLoggedIn) {
-<h1>@titleMsg</h1>
+@mainView {
+    <h1>Hello to Index</h1>
 }

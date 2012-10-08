@@ -11,11 +11,5 @@ GET     /register                   main.controllers.UserManager.showRegisterScr
 POST    /newuser                    main.controllers.UserManager.newUser
 POST    /loginas                    main.controllers.UserManager.login
 
-# TodoList
-GET     /todolist/                  todolist.controllers.TodoList.index
-GET     /todolist/alltasks          todolist.controllers.TodoList.showTasks
-POST    /todolist/new               todolist.controllers.TodoList.newTask
-POST    /todolist/delete:id         todolist.controllers.TodoList.deleteTask(id: Long)
-
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

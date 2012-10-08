@@ -1,11 +1,11 @@
-@(registerForm: Form[(String, String, String, String)])
+@(registerForm: Form[(String, String, String, String)])(implicit session: play.api.mvc.Session)
 
 @import helper._
 @import play.api.data
 @import play.api.data.Forms._
 
 
-@mainView(isLoggedIn = false) {
+@mainView {
     <h1>Register</h1>
 
     @form((new main.controllers.ReverseUserManager).newUser) {

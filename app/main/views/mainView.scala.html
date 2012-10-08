@@ -1,4 +1,5 @@
-@(isLoggedIn: Boolean)(content: Html)
+@(content: Html)(implicit session: play.api.mvc.Session)
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +53,13 @@
 
             <ul class="nav pull-right">
               <li><a href="#about">Admin</a></li>
-              <li class="active"><a href="/login">Login</a></li>
+
+              <li class="active">
+                  @(session.get("fname")
+                  .map(_ => <a href="/logout">Logout</a>)
+                  .getOrElse(<a href="/login">Login</a>))
+              </li>
+
             </ul>
           </div>
         </div>

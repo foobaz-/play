@@ -1,10 +1,10 @@
-@(loginForm: Form[(String, String)])
+@(loginForm: Form[(String, String)])(implicit session: play.api.mvc.Session)
 
 @import helper._
 @import play.api.data
 @import play.api.data.Forms._
 
-@mainView(isLoggedIn = false) {
+@mainView {
 
     <h1>Please Login</h1>
     If you don't have an account yet, please <a href="/register">register here</a>.

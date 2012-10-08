@@ -10,14 +10,14 @@ EntryPoint	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^object
 form	/home/robin/play/games/app/main/controllers/UserManager.scala	/^    val form = loginForm.bindFromRequest()(request)$/;"	l	language:scala
 form	/home/robin/play/games/app/main/controllers/UserManager.scala	/^    val form = registerForm.bindFromRequest()(request)$/;"	l	language:scala
 index	/home/robin/play/games/app/main/controllers/Application.scala	/^  def index = Action {$/;"	m	language:scala
-index	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^  def index = Action { request =>$/;"	m	language:scala
-login	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def login = Action(parse.urlFormEncoded) { request =>$/;"	m	language:scala
+index	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^  def index = Action { implicit request =>$/;"	m	language:scala
+login	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def login = Action(parse.urlFormEncoded) { implicit request =>$/;"	m	language:scala
 loginForm	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  val loginForm = Form($/;"	l	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/Application.scala	/^package main.controllers$/;"	p	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^package main.controllers$/;"	p	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/UserManager.scala	/^package main.controllers$/;"	p	language:scala
-newUser	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def newUser() = Action(parse.urlFormEncoded) { request =>$/;"	m	language:scala
+newUser	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def newUser() = Action(parse.urlFormEncoded) { implicit request =>$/;"	m	language:scala
 registerForm	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  val registerForm = Form($/;"	l	language:scala
-showLoginScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showLoginScreen = Action {$/;"	m	language:scala
-showRegisterScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showRegisterScreen = Action {$/;"	m	language:scala
+showLoginScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showLoginScreen = Action { implicit request =>$/;"	m	language:scala
+showRegisterScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showRegisterScreen = Action { implicit request =>$/;"	m	language:scala
 UserManager	/home/robin/play/games/app/main/controllers/UserManager.scala	/^object UserManager extends Controller {$/;"	c	language:scala

@@ -33,14 +33,14 @@ object UserManager extends Controller {
   /*
    * Show the register screen
    */
-  def showRegisterScreen = Action {
+  def showRegisterScreen = Action { implicit request =>
     Ok(html.register(registerForm))
   }
 
   /*
    * Show the login screen
    */
-  def showLoginScreen = Action {
+  def showLoginScreen = Action { implicit request =>
     Ok(html.loginscreen(loginForm))
   }
   //////////////////////////////////////////////////////
@@ -51,7 +51,7 @@ object UserManager extends Controller {
    * User not in DB: Redirect to login screen. TODO show alreadt exists message in getOrElse
    * User in DB: Redirect to index and show greeting
    */
-  def login = Action(parse.urlFormEncoded) { request =>
+  def login = Action(parse.urlFormEncoded) { implicit request =>
     val form = loginForm.bindFromRequest()(request)
     form.fold(
       // Handle case if form had errors
@@ -74,7 +74,7 @@ object UserManager extends Controller {
    * Redirect to register screen if the email already exists in the database.
    * Else redirect to login screen
    */
-  def newUser() = Action(parse.urlFormEncoded) { request =>
+  def newUser() = Action(parse.urlFormEncoded) { implicit request =>
     val form = registerForm.bindFromRequest()(request)
     form.fold(
       // Handle case if form had errors
