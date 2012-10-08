@@ -4,8 +4,6 @@ import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import play.api.db._
-import anorm._
 import play.api.Play.current
 
 import main.views.html
@@ -30,11 +28,30 @@ object UserManager extends Controller {
     )
   )
 
+
+  //////////////// SIMPLE INDEX METHODS ////////////////
+  /*
+   * Show the register screen
+   */
+  def showRegisterScreen = Action {
+    Ok(html.register(registerForm))
+  }
+
+  /*
+   * Show the login screen
+   */
   def showLoginScreen = Action {
     Ok(html.loginscreen(loginForm))
   }
+  //////////////////////////////////////////////////////
 
-  def loginAsUser = Action(parse.urlFormEncoded) { request =>
+
+  /*
+   * Try to login the user with the form data supplied in the request.
+   * User not in DB: Redirect to login screen. TODO show alreadt exists message in getOrElse
+   * User in DB: Redirect to index and show greeting
+   */
+  def login = Action(parse.urlFormEncoded) { request =>
     val form = loginForm.bindFromRequest()(request)
     form.fold(
       // Handle case if form had errors
@@ -43,7 +60,7 @@ object UserManager extends Controller {
       // Handle case if form was filled out correctly
       {
         case (email, pw) =>
-          checkLogin(email, pw)
+          User.checkLogin(email, pw)
           .map(u => Redirect((new ReverseEntryPoint).index)
           .withSession( "session" -> email
                       , "fname"   -> u.firstName) )
@@ -52,11 +69,11 @@ object UserManager extends Controller {
     )
   }
 
-
-  def showRegisterScreen = Action {
-    Ok(html.register(registerForm))
-  }
-
+  /*
+   * Try to insert a new user into the database.
+   * Redirect to register screen if the email already exists in the database.
+   * Else redirect to login screen
+   */
   def newUser() = Action(parse.urlFormEncoded) { request =>
     val form = registerForm.bindFromRequest()(request)
     form.fold(
@@ -67,7 +84,7 @@ object UserManager extends Controller {
       {
         case (fname, lname, email, pw) =>
           // Try to insert new user, return false flag if already in DB
-          val doesAlreadyExist = insertNewUser(User(fname, lname, email, pw))
+          val doesAlreadyExist = User.insert(User(fname, lname, email, pw))
           // User does already exist, send Bad Request
           if (doesAlreadyExist) BadRequest(html.register(registerForm))
           // New user! Redirect to login
@@ -76,53 +93,5 @@ object UserManager extends Controller {
         case _ => Ok(html.loginscreen(loginForm))
       }
     )
-  }
-
-  def checkLogin(email: String, pw: String): Option[User] = {
-    DB.withConnection { implicit conn =>
-      val rows = SQL(
-      """
-      select * from user where email = {email}
-        and password = {pw}
-      """
-      ).on( "email" -> email
-          , "pw"    -> pw )()
-
-      rows.toList.headOption map {
-        case Row(id, fname: String, lname: String, email: String, pw: String) =>
-          User(fname, lname, email, pw)
-      }
-    }
-  }
-
-  def insertNewUser(user: User) = {
-    println("Checking if user already is in DB:" + user)
-    DB.withConnection { implicit conn =>
-      val rows = SQL(
-        """
-        select email from user where email = {email}
-        """
-      ).on("email" -> user.email)()
-
-      if (!rows.isEmpty) {
-        // User is already in the database!
-        true
-      }
-      else {
-        // User is not in the database, add him!
-        println("Trying to add user: " + user)
-        val id = SQL(
-          """
-          insert into user (fname, lname, email, password)
-          values ({fname}, {lname}, {email}, {password})
-          """
-        ).on( "fname"    -> user.firstName
-            , "lname"    -> user.familyName
-            , "email"    -> user.email
-            , "password" -> user.password ).executeInsert()
-        println("User added with ID: " + id.get)
-        false
-      }
-    }
   }
 }

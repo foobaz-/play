@@ -9,7 +9,7 @@ GET     /                           main.controllers.EntryPoint.index
 GET     /login                      main.controllers.UserManager.showLoginScreen
 GET     /register                   main.controllers.UserManager.showRegisterScreen
 POST    /newuser                    main.controllers.UserManager.newUser
-POST    /loginas                    main.controllers.UserManager.loginAsUser
+POST    /loginas                    main.controllers.UserManager.login
 
 # TodoList
 GET     /todolist/                  todolist.controllers.TodoList.index

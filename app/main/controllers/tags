@@ -4,25 +4,20 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-checkLogin	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def checkLogin(email: String, pw: String): Option[User] = {$/;"	m	language:scala
-doesAlreadyExist	/home/robin/play/games/app/main/controllers/UserManager.scala	/^          val doesAlreadyExist = insertNewUser(User(fname, lname, email, pw))$/;"	l	language:scala
+doesAlreadyExist	/home/robin/play/games/app/main/controllers/UserManager.scala	/^          val doesAlreadyExist = User.insert(User(fname, lname, email, pw))$/;"	l	language:scala
 EntryPoint	/home/robin/play/games/app/main/controllers/Application.scala	/^object EntryPoint extends Controller {$/;"	c	language:scala
 EntryPoint	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^object EntryPoint extends Controller {$/;"	c	language:scala
 form	/home/robin/play/games/app/main/controllers/UserManager.scala	/^    val form = loginForm.bindFromRequest()(request)$/;"	l	language:scala
 form	/home/robin/play/games/app/main/controllers/UserManager.scala	/^    val form = registerForm.bindFromRequest()(request)$/;"	l	language:scala
-id	/home/robin/play/games/app/main/controllers/UserManager.scala	/^        val id = SQL($/;"	l	language:scala
 index	/home/robin/play/games/app/main/controllers/Application.scala	/^  def index = Action {$/;"	m	language:scala
 index	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^  def index = Action { request =>$/;"	m	language:scala
-insertNewUser	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def insertNewUser(user: User) = {$/;"	m	language:scala
-loginAsUser	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def loginAsUser = Action(parse.urlFormEncoded) { request =>$/;"	m	language:scala
+login	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def login = Action(parse.urlFormEncoded) { request =>$/;"	m	language:scala
 loginForm	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  val loginForm = Form($/;"	l	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/Application.scala	/^package main.controllers$/;"	p	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/EntryPoint.scala	/^package main.controllers$/;"	p	language:scala
 main.controllers	/home/robin/play/games/app/main/controllers/UserManager.scala	/^package main.controllers$/;"	p	language:scala
 newUser	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def newUser() = Action(parse.urlFormEncoded) { request =>$/;"	m	language:scala
 registerForm	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  val registerForm = Form($/;"	l	language:scala
-rows	/home/robin/play/games/app/main/controllers/UserManager.scala	/^      val rows = SQL($/;"	l	language:scala
-rows	/home/robin/play/games/app/main/controllers/UserManager.scala	/^      val rows = SQL($/;"	l	language:scala
 showLoginScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showLoginScreen = Action {$/;"	m	language:scala
 showRegisterScreen	/home/robin/play/games/app/main/controllers/UserManager.scala	/^  def showRegisterScreen = Action {$/;"	m	language:scala
 UserManager	/home/robin/play/games/app/main/controllers/UserManager.scala	/^object UserManager extends Controller {$/;"	c	language:scala

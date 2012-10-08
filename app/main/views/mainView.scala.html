@@ -4,16 +4,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>foobaz united</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/style.css" rel="stylesheet">
     <style>
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
     <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -24,11 +25,11 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
   <body>
@@ -41,31 +42,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">foobaz</a>
+          <a id="headerLogo" class="brand" href="/">foobaz</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/">Home</a></li>
               <li><a href="#about">About</a></li>
-
-
-              <!--Login Button-->
-              <li>
-               @{
-                  if(isLoggedIn)
-                      <a>Logged In</a>
-                  else
-                      <a href="/login">Login</a>
-                }
-              </li>
-
-
+              <li><a href="#contact">Contact</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+
+            <ul class="nav pull-right">
+              <li><a href="#about">Admin</a></li>
+              <li class="active"><a href="/login">Login</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <div id=mainContainer class="container">
 
         @content
 

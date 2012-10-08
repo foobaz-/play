@@ -4,5 +4,11 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+checkLogin	/home/robin/play/games/app/main/models/User.scala	/^  def checkLogin(email: String, pw: String): Option[User] = {$/;"	m	language:scala
+id	/home/robin/play/games/app/main/models/User.scala	/^        val id = SQL($/;"	l	language:scala
+insert	/home/robin/play/games/app/main/models/User.scala	/^  def insert(user: User) = {$/;"	m	language:scala
 main.models	/home/robin/play/games/app/main/models/User.scala	/^package main.models$/;"	p	language:scala
+rows	/home/robin/play/games/app/main/models/User.scala	/^      val rows = SQL($/;"	l	language:scala
+rows	/home/robin/play/games/app/main/models/User.scala	/^      val rows = SQL($/;"	l	language:scala
 User	/home/robin/play/games/app/main/models/User.scala	/^case class User(firstName: String, familyName: String, email: String, password: String)$/;"	c	language:scala
+User	/home/robin/play/games/app/main/models/User.scala	/^object User {$/;"	c	language:scala

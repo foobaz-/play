@@ -1,0 +1,24 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #e9eeee;
+}
+
+#headerLogo {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+#mainContainer {
+    height: 100%;
+    background-color: #ffffff;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-left: thin solid #a3a3a3;
+    border-right: thin solid #a3a3a3;
+    box-shadow: 1px 0px 2px #a3a3a3, -1px 0px 5px #a3a3a3;
+}
