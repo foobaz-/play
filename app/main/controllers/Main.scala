@@ -56,7 +56,7 @@ object Main extends Controller {
 
   /*
    * Try to login the user with the form data supplied in the request.
-   * User not in DB: Redirect to login screen. TODO show alreadt exists message in getOrElse
+   * User not in DB: Redirect to login screen. TODO show already exists message in getOrElse
    * User in DB: Redirect to index and show greeting
    */
   def login = Action(parse.urlFormEncoded) { implicit request =>
