@@ -22,3 +22,9 @@ body {
     border-right: thin solid #a3a3a3;
     box-shadow: 1px 0px 2px #a3a3a3, -1px 0px 5px #a3a3a3;
 }
+
+.divCenter {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
