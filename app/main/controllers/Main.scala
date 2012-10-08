@@ -10,7 +10,7 @@ import main.views.html
 import main.models.User
 
 
-object UserManager extends Controller {
+object Main extends Controller {
 
   val loginForm = Form(
     tuple(
@@ -37,6 +37,14 @@ object UserManager extends Controller {
     Ok(html.register(registerForm))
   }
 
+  def logout = Action { request =>
+    Redirect((new ReverseMain).index).withNewSession
+  }
+
+  def index = Action { implicit request =>
+      Ok(main.views.html.index())
+  }
+
   /*
    * Show the login screen
    */
@@ -61,10 +69,10 @@ object UserManager extends Controller {
       {
         case (email, pw) =>
           User.checkLogin(email, pw)
-          .map(u => Redirect((new ReverseEntryPoint).index)
+          .map(u => Redirect((new ReverseMain).index)
           .withSession( "session" -> email
                       , "fname"   -> u.firstName) )
-          .getOrElse( Redirect((new ReverseUserManager).showLoginScreen))
+          .getOrElse( Redirect((new ReverseMain).showLoginScreen))
       }
     )
   }
@@ -88,9 +96,11 @@ object UserManager extends Controller {
           // User does already exist, send Bad Request
           if (doesAlreadyExist) BadRequest(html.register(registerForm))
           // New user! Redirect to login
-          else Redirect((new ReverseUserManager).showLoginScreen)
+          else Redirect((new ReverseMain).index)
+          .withSession( "session" -> email
+                      , "fname"   -> fname)
         // This case can't happen. Keeping the compiler happy
-        case _ => Ok(html.loginscreen(loginForm))
+        //case _ => Ok(html.loginscreen(loginForm))
       }
     )
   }
