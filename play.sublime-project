@@ -1,0 +1,29 @@
+{
+	"folders":
+	[
+		{
+			"path": "app"
+		},
+		{
+			"path": "bin"
+		},
+		{
+			"path": "conf"
+		},
+		{
+			"path": "logs"
+		},
+		{
+			"path": "project"
+		},
+		{
+			"path": "public"
+		},
+		{
+			"path": "target"
+		},
+		{
+			"path": "test"
+		}
+	]
+}

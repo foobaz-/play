@@ -17,6 +17,12 @@ object FavColor extends Controller {
              Redirect((new main.controllers.ReverseMain).showLoginScreen))
   }
 
-
+  def getQuestion(number: Int) = Action { implicit request => 
+  	println("Got: " + request.uri)
+  	number match {
+  		case 1 => println(html.q1()); Ok(html.q1())
+  		case _ => Ok(html.q1())
+  	}
+  }
 
 }

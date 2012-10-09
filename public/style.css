@@ -28,3 +28,10 @@ body {
     margin-right: auto;
     width: 600px;
 }
+
+.divCenterBtn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    text-align: center;
+}
