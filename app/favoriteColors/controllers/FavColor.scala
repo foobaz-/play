@@ -21,8 +21,16 @@ object FavColor extends Controller {
   	println("Got: " + request.uri)
   	number match {
   		case 1 => println(html.q1()); Ok(html.q1())
-  		case _ => Ok(html.q1())
+  		case 2 => Ok(html.q2())
+      case _ => Ok(html.q2())
   	}
+  }
+
+  def save = Action { implicit request =>
+    val answers = request.body.asFormUrlEncoded
+    // TODO: save answers
+    // and redirect to "thank you screen or something"
+    Ok(html.favcolorindex())
   }
 
 }
