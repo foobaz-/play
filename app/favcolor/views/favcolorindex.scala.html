@@ -1,6 +1,6 @@
 @()(implicit session: play.api.mvc.Session)
 
-@main.views.html.mainView {
+@main.views.html.wrap {
   <div class="divCenter" id="introduction">
       <h1>Survey about your favorite colors</h1>
       <p>You will have to answer some questions about your favorite colors.</p>
@@ -15,5 +15,5 @@
   	  <a id="next" class="btn btn-primary btn-large" href="#">Start!</a>
   </div>
   
-}("javascripts/favoriteColors/script.js")
+}("javascripts/favcolor/script.js")
 

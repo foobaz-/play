@@ -1,4 +1,4 @@
-package favoriteColors.controllers
+package favcolor.controllers
 
 import play.api._
 import play.api.mvc._
@@ -6,7 +6,7 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.Play.current
 
-import favoriteColors.views.html
+import favcolor.views.html
 
 object FavColor extends Controller {
 
@@ -20,8 +20,8 @@ object FavColor extends Controller {
   def getQuestion(number: Int) = Action { implicit request => 
   	println("Got: " + request.uri)
   	number match {
-  		case 1 => println(html.q1()); Ok(html.q1())
-  		case 2 => Ok(html.q2())
+  	  case 1 => println(html.q1()); Ok(html.q1())
+  	  case 2 => Ok(html.q2())
       case _ => Ok(html.q2())
   	}
   }

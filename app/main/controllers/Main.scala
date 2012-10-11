@@ -49,7 +49,7 @@ object Main extends Controller {
    * Show the login screen
    */
   def showLoginScreen = Action { implicit request =>
-    Ok(html.loginscreen(loginForm))
+    Ok(html.login(loginForm))
   }
   //////////////////////////////////////////////////////
 
@@ -64,13 +64,14 @@ object Main extends Controller {
     form.fold(
       // Handle case if form had errors
       // Display the login page and highlight wrong input
-      f => BadRequest(html.loginscreen(f)),
+      f => BadRequest(html.login(f)),
       // Handle case if form was filled out correctly
       {
         case (email, pw) =>
-          User.checkLogin(email, pw)
+          User.get(email, pw)
           .map(u => Redirect((new ReverseMain).index)
-          .withSession( "session" -> email
+          .withSession( "userId"  -> u.id.toString
+                      , "session" -> u.email
                       , "fname"   -> u.firstName) )
           .getOrElse( Redirect((new ReverseMain).showLoginScreen))
       }
@@ -92,15 +93,19 @@ object Main extends Controller {
       {
         case (fname, lname, email, pw) =>
           // Try to insert new user, return false flag if already in DB
-          val doesAlreadyExist = User.insert(User(fname, lname, email, pw))
-          // User does already exist, send Bad Request
-          if (doesAlreadyExist) BadRequest(html.register(registerForm))
+          var id: Long = 0
+          try {
+	        id = User.insert(fname, lname, email, pw)
+          } catch {
+            // User does already exist, send Bad Request
+            case e => BadRequest(html.register(registerForm))
+          }
+          
           // New user! Redirect to login
-          else Redirect((new ReverseMain).index)
-          .withSession( "session" -> email
+          Redirect((new ReverseMain).index)
+          .withSession( "userId"  -> id.toString
+                      , "session" -> email
                       , "fname"   -> fname)
-        // This case can't happen. Keeping the compiler happy
-        //case _ => Ok(html.loginscreen(loginForm))
       }
     )
   }
