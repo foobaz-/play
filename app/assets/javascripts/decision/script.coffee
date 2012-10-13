@@ -6,6 +6,7 @@
 ###
 
 currentQuestion = 0
+balance = 0
 
 gain = (chance, increase, invested) ->
   rand = Math.random() * 100 # percent
@@ -14,28 +15,21 @@ gain = (chance, increase, invested) ->
   else
     -invested
 
-getQuestion = (id) ->
-  $.ajax "/decision/#{id}",
-    type: "GET"
-    success: (data) ->
-      $("#question").html data
-    error: () ->
-      alert('bla')
+getQuestion = (id, callback) ->
+  $.get "/decision/#{id}", (data) ->
+    $("#question").html data
+    do callback
 
-$("#start").click ->
-  getQuestion 1
-  $('#controls').show()
 
 jQuery ->
-
-  # getQuestion(1) ## <---- funktioniert
+  $("#start").click ->
+    getQuestion 1, -> $('#controls').show()
 
   # set invest button handler
-  #$("#invest").click ->
-
-  # set start button handler
-    # get new question
-    # make controls visible
-    # initialise all control variables
+  $("#invest").click ->
+    # check if field is empty
+    # check if there is a number
+    # check if the number is smaller-equal than the current balance
+    # perform
 
 
