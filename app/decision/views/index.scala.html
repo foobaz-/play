@@ -1,0 +1,29 @@
+@()(implicit session: play.api.mvc.Session)
+
+@main.views.html.wrap {
+  <div class="" id="question">
+      <h1>This is a little decision making game</h1>
+      <p>Once your ready, press start and follow the instructions on the screen.</p>
+   	  <a id="start" class="btn btn-primary btn-large" href="">Start!</a>
+  </div>
+
+
+  <div id="controls" class="" style="width:50%" hidden>
+    <div class="input-append">
+      <input class="span2" id="appendedInputButton" size="16" type="text">
+        <button id="invest" class="btn" type="button">Invest</button>
+      </input>
+    </div>
+
+    <div class="well">
+      <h5>current money:</h5>
+      <label id="currentMoney">5000 CHF</label>
+    </div>
+
+    <div class="alert alert-error" hidden>
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      Some error just happened
+    </div>
+  </div>
+
+}("javascripts/decision/script.js")

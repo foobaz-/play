@@ -6,8 +6,9 @@
 @@   scripts: Paths to managed scripts in the assets dir as strings
 @@     they will bi included with @routes.Assets.at(path)
 @@     at the bottom of the page, after jquery and bootstrap
-@@   session: implicitly passed session from request 
-*@   
+@@   session: implicitly passed session from request
+*@
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,20 +57,32 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="/">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
             </ul>
-
+            @*
             <ul class="nav pull-right">
-              <li><a href="#about">Admin</a></li>
-
               <li class="active">
                   @(session.get("fname")
                   .map(_ => <a href="/logout">Logout</a>)
                   .getOrElse(<a href="/login">Login</a>))
               </li>
-
             </ul>
+            *@
+
+            @session.get("fname").map { user =>
+            <ul class="nav pull-right">
+              <li><a href="/logout">Logout (@user)</a></li>
+            </ul>
+            }.getOrElse {
+              <form action="/login" class="navbar-form pull-right">
+                <input class="span2" type="text" placeholder="Email"></input>
+                <input class="span2" type="password" placeholder="Password"></input>
+                <button type="submit" class="btn">Login</button>
+              </form>
+              <ul class="nav pull-right">
+                <li><a href="/register">Register</a></li>
+              </ul>
+            }
+
           </div>
         </div>
       </div>
@@ -80,7 +93,7 @@
 
         @content
 
-    </div> 
+    </div>
     <!-- /container -->
 
     <!-- Le javascript

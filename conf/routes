@@ -10,7 +10,7 @@ GET     /login                      main.controllers.Main.showLoginScreen
 GET     /register                   main.controllers.Main.showRegisterScreen
 GET     /logout                     main.controllers.Main.logout
 POST    /newuser                    main.controllers.Main.newUser
-POST    /loginas                    main.controllers.Main.login
+POST    /login                      main.controllers.Main.login
 
 # EXPERIMENTS/APPS
 # Favorite Color
@@ -18,5 +18,8 @@ GET     /favoritecolor              favcolor.controllers.FavColor.index
 GET     /favoritecolor/question:id  favcolor.controllers.FavColor.getQuestion(id: Int)
 POST    /favoritecolor/save         favcolor.controllers.FavColor.save
 
+# Decision
+GET     /decision                   decision.controllers.Decision.index
+GET     /decision/:id               decision.controllers.Decision.getQuestion(id: Int)
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

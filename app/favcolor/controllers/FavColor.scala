@@ -6,6 +6,7 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.Play.current
 
+import favcolor.models.ColorSurvey
 import favcolor.views.html
 
 object FavColor extends Controller {
@@ -17,7 +18,7 @@ object FavColor extends Controller {
              Redirect((new main.controllers.ReverseMain).showLoginScreen))
   }
 
-  def getQuestion(number: Int) = Action { implicit request => 
+  def getQuestion(number: Int) = Action { implicit request =>
   	println("Got: " + request.uri)
   	number match {
   	  case 1 => println(html.q1()); Ok(html.q1())
@@ -26,11 +27,17 @@ object FavColor extends Controller {
   	}
   }
 
-  def save = Action { implicit request =>
-    val answers = request.body.asFormUrlEncoded
-    // TODO: save answers
-    // and redirect to "thank you screen or something"
-    Ok(html.favcolorindex())
+  def save = Action { request =>
+    val surveyId: Option[Long] = for(
+      answers <- request.body.asFormUrlEncoded;
+      userId <- request.session.get("userId").map(_.toLong);
+      surveyId <- ColorSurvey.insert(userId, answers)
+    ) yield surveyId
+
+    // TODO HAS TO BE SENT BACK TO AJAX CALL FROM SCRIPT
+    surveyId.map( (id: Long) => println("Added survey with id: " + id))
+    .map ( _ => Ok("Thank you for your participation!"))
+    .getOrElse (BadRequest("Something fucked up while saving the form"))
   }
 
 }

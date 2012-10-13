@@ -28,7 +28,7 @@ object User {
           , "pw"    -> pw )()
 
       rows.toList.headOption map {
-        case Row(id: Long, fname: String, lname: String, email: String, pw: String) =>
+        case Row(id: Int, fname: String, lname: String, email: String, pw: String) =>
           User(id: Long, fname, lname, email, pw)
       }
     }

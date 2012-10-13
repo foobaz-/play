@@ -18,14 +18,12 @@ initialize = () ->
     '<a id="previous" class="btn btn-primary btn-large" href="#">previous</a>'
   ).html("next")
   $("#introduction").remove()
-  ###################################
-  # Add previous-button click event #
-  ###################################
+  ## Add previous-button click event
   $("#previous").click ->
     if currentQuestion <= 1 then return
     else
       currentQuestion--
-      # Ajax call 
+      # Ajax call
       $.ajax "/favoritecolor/question" + currentQuestion,
         type: "GET"
         success: (data, status, jqxhr) ->
@@ -33,13 +31,10 @@ initialize = () ->
         error: (jqxhr, status, error) ->
           console.log("ajax error: status: #{status}, error: #{error}")
           currentQuestion++
-  ###################################
-
 
 jQuery ->
-  ###############################
+  ##
   # Add next-button click event #
-  ###############################
   $("#next").click ->
     try
       switch currentQuestion
@@ -48,7 +43,7 @@ jQuery ->
         when 2 then do saveQ2
     catch error
       console.log("error while saving question #{currentQuestion}: #{error}")
-      return 
+      return
 
     currentQuestion++
 
@@ -60,6 +55,8 @@ jQuery ->
         success: (data, status, jqxhr) ->
           console.log("successfully POSTed #{answers} to server")
           console.log("got response: #{data}")
+          $('#question').html(data)
+          $('.divCenterBtn').remove()
 
     # Request next question
     else
@@ -73,5 +70,6 @@ jQuery ->
         error: (jqXHR, status, error) ->
           console.log("ajax error: status: #{status}, error: #{error}")
           currentQuestion--
-  ###############################
-      
+  #
+  ##
+
